@@ -9,12 +9,12 @@
   /* Self-contained on purpose: no external fonts, scripts or CDNs, so the page loads in mainland China. */
   :root {
     --bg: #ffffff; --fg: #1d2330; --muted: #5b6475; --line: #e3e6ec;
-    --accent: #0b5d7a; --accent-soft: #e8f2f6; --card: #f7f8fa;
+    --accent: #1f4e8c; --accent-soft: #ffffff; --card: #f7f8fa;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #12161d; --fg: #e6e9ef; --muted: #a3acbb; --line: #2a313c;
-      --accent: #6cc3e0; --accent-soft: #17303a; --card: #181d25;
+      --accent: #8fb4e6; --accent-soft: #12161d; --card: #181d25;
     }
   }
   * { box-sizing: border-box; }
@@ -28,16 +28,17 @@
   a { color: var(--accent); }
   .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
   header { background: var(--accent-soft); border-bottom: 1px solid var(--line); }
-  header .wrap { padding-top: 48px; padding-bottom: 40px; }
-  h1 { font-size: clamp(26px, 5vw, 38px); line-height: 1.2; margin: 0 0 16px; }
+  header .wrap { padding-top: 36px; padding-bottom: 28px; }
+  h1, h2 { font-family: Georgia, "Times New Roman", "Songti SC", SimSun, serif; font-weight: 600; }
+  h1 { font-size: clamp(26px, 5vw, 34px); line-height: 1.25; margin: 0 0 14px; }
   .when { font-size: 18px; margin: 0; }
   .where { color: var(--muted); margin: 4px 0 0; }
-  .official { margin: 12px 0 0; font-weight: 600; }
-  nav { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 1; }
+  .official { margin: 12px 0 0; }
+  nav { border-bottom: 1px solid var(--line); background: var(--bg); }
   nav .wrap { display: flex; flex-wrap: wrap; gap: 4px 18px; padding-top: 10px; padding-bottom: 10px; font-size: 14px; }
   nav a { text-decoration: none; }
   main section { padding: 32px 0 8px; }
-  h2 { font-size: 22px; margin: 0 0 12px; }
+  h2 { font-size: 22px; margin: 0 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
   .facts { display: grid; grid-template-columns: 170px 1fr; gap: 8px 16px; margin: 0; }
   .facts dt { color: var(--muted); }
   .facts dd { margin: 0; }
@@ -45,17 +46,18 @@
   table { width: 100%; border-collapse: collapse; }
   th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid var(--line); }
   th { width: 34%; font-weight: 600; }
-  ul.people { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
-  ul.people li { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; }
+  ul.people { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 40px; }
+  ul.people li { break-inside: avoid; margin: 0 0 10px; }
   ul.people .name { font-weight: 600; display: block; }
   ul.people .aff { color: var(--muted); font-size: 14px; }
+  @media (max-width: 560px) { ul.people { columns: 1; } }
   .note { color: var(--muted); font-size: 14px; }
   img { max-width: 100%; height: auto; display: block; }
   .hero { margin: 24px 0 0; }
-  .hero img { width: 100%; border-radius: 8px; }
+  .hero img { width: 100%; }
   .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 0; }
   .gallery figure { margin: 0; }
-  .gallery img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 8px; }
+  .gallery img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
   .gallery figcaption { color: var(--muted); font-size: 13px; margin-top: 4px; }
   @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } }
   footer { border-top: 1px solid var(--line); margin-top: 40px; }
@@ -113,14 +115,23 @@
   </section>
 
   <section id="speakers">
-    <h2>Participants (updating)</h2>
+    <h2>Participants (in alphabetical order, updating)</h2>
     <ul class="people">
-      <li><span class="name">Stephen Wright</span><span class="aff">University of Wisconsin–Madison</span></li>
-      <li><span class="name">Ya-xiang Yuan</span><span class="aff">Academy of Mathematics and Systems Science, Chinese Academy of Sciences</span></li>
       <li><span class="name">Yu-Hong Dai</span><span class="aff">Academy of Mathematics and Systems Science, Chinese Academy of Sciences</span></li>
-      <li><span class="name">Zhi-Quan Luo</span><span class="aff">The Chinese University of Hong Kong, Shenzhen</span></li>
+      <li><span class="name">Dongdong Ge</span><span class="aff">Shanghai Jiao Tong University</span></li>
+      <li><span class="name">Yaohua Hu</span><span class="aff">Shenzhen University</span></li>
+      <li><span class="name">Yongjin Liu</span><span class="aff">Fuzhou University</span></li>
       <li><span class="name">Zhaosong Lu</span><span class="aff">University of Minnesota</span></li>
+      <li><span class="name">Zhi-Quan Luo</span><span class="aff">The Chinese University of Hong Kong, Shenzhen</span></li>
       <li><span class="name">Sebastian Pokutta</span><span class="aff">Zuse Institute Berlin and TU Berlin</span></li>
+      <li><span class="name">Anthony Man-Cho So</span><span class="aff">The Chinese University of Hong Kong</span></li>
+      <li><span class="name">Ruoyu Sun</span><span class="aff">The Chinese University of Hong Kong, Shenzhen</span></li>
+      <li><span class="name">Stephen Wright</span><span class="aff">University of Wisconsin–Madison</span></li>
+      <li><span class="name">Yue Xie</span><span class="aff">The University of Hong Kong</span></li>
+      <li><span class="name">Zi Xu</span><span class="aff">Shanghai University</span></li>
+      <li><span class="name">Junfeng Yang</span><span class="aff">Nanjing University</span></li>
+      <li><span class="name">Ya-xiang Yuan</span><span class="aff">Academy of Mathematics and Systems Science, Chinese Academy of Sciences</span></li>
+      <li><span class="name">Jin Zhang</span><span class="aff">Southern University of Science and Technology</span></li>
     </ul>
   </section>
 
@@ -152,14 +163,14 @@
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Yang Liu, Center for Intelligent Computing, Great Bay Institute for Advanced Study, Great Bay University — <a href="mailto:liuy@gbu.edu.cn">liuy@gbu.edu.cn</a><br>
-    Xiao Yi, Center for Intelligent Computing, Great Bay Institute for Advanced Study, Great Bay University — <a href="mailto:cinco@gbu.edu.cn">cinco@gbu.edu.cn</a></p>
+    <p>Yang Liu, Center for Intelligent Computing, Great Bay Institute for Advanced Study, Great Bay University, <a href="mailto:liuy@gbu.edu.cn">liuy@gbu.edu.cn</a><br>
+    Xiao Yi, Center for Intelligent Computing, Great Bay Institute for Advanced Study, Great Bay University, <a href="mailto:cinco@gbu.edu.cn">cinco@gbu.edu.cn</a></p>
   </section>
 
 </main>
 
 <footer>
-  <div class="wrap">Center for Intelligent Computing, Great Bay Institute for Advanced Study, Great Bay University<br>Last updated: October 18, 2026</div>
+  <div class="wrap">Center for Intelligent Computing, Great Bay Institute for Advanced Study, Great Bay University<br>Last updated: October 20, 2026</div>
 </footer>
 
 </body>
